@@ -1,7 +1,34 @@
 {% extends "base.html" %}
 
-{% block title %}pokemon{% endblock %}
-
 {% block content %}
-<h1>holaaaaa<h1>
+
+<h1 class="text-center mb-4">{{ pokemon.name }}</h1>
+
+<div class="text-center">
+    <img src="{{ pokemon.sprites }}" class="img-fluid mb-3" >
+</div>
+
+<p class="text-center">
+    <strong>ID:</strong> {{ pokemon.id }}
+</p>
+
+<p class="text-center">
+    <strong>Altura:</strong> {{ pokemon.height }} m 
+    <strong>Peso:</strong> {{ pokemon.weight }} kg
+</p>
+
+<h3 class="mt-4">Habilidades:</h3>
+
+<ul class="list-group">
+    {% for ability in pokemon.abilities %}
+    <li class="list-group-item bg-dark text-white border-light">
+        {{ ability }}
+    </li>
+    {% endfor %}
+</ul>
+
+<div class="text-center mt-4">
+    <a href="{{ url_for('index') }}" class="btn btn-light">Buscar otro Pokémon</a>
+</div>
+
 {% endblock %}

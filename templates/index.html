@@ -1,11 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}index{% endblock %}
-
 {% block content %}
-    <h1 class="bg-white">This is a pokeapi</h1>
-    
-    <label for="pokemon-name">Enter Pokémon Name:</label>
-    <input type="text" id="pokemon-name" name="pokemon-name">
-    <button type="submit class="btn btn-primary>Search</button>
+
+<h1 class="text-center mb-4">Buscar Pokémon</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, msg in messages %}
+            <div class="alert alert-danger">{{ msg }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form action="{{ url_for('buscar_pokemon') }}" method="POST" class="text-center">
+
+    <input 
+        type="text" 
+        name="pokemon_name" 
+        class="form-control mb-3 bg-dark text-white border-light w-50 mx-auto"
+        placeholder="Ingresa el nombre de un Pokémon"
+    >
+
+    <button type="submit" class="btn btn-light">Buscar</button>
+
+</form>
+
 {% endblock %}
