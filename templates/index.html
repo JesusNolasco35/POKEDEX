@@ -2,7 +2,9 @@
 
 {% block content %}
 
-<h1 class="text-center mb-4">Buscar Pokémon</h1>
+<h1 class="text-center mb-4 bg-danger text-light p-3 rounded">
+    Buscar Pokémon
+</h1>
 
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
@@ -12,17 +14,28 @@
     {% endif %}
 {% endwith %}
 
-<form action="{{ url_for('buscar_pokemon') }}" method="POST" class="text-center">
+<div class="bg-dark bg-opacity-25 rounded p-4 w-75 mx-auto">
 
-    <input 
-        type="text" 
-        name="pokemon_name" 
-        class="form-control mb-3 bg-dark text-white border-light w-50 mx-auto"
-        placeholder="Ingresa el nombre de un Pokémon"
-    >
+    <form action="{{ url_for('buscar_pokemon') }}" method="POST">
 
-    <button type="submit" class="btn btn-light">Buscar</button>
+        <!-- NOTA: Input alineado a la izquierda -->
+        <input 
+            type="text" 
+            name="pokemon_name" 
+            class="form-control bg-dark text-white border-light w-50 float-start"
+            placeholder="Ingresa el nombre de un Pokémon"
+        >
 
-</form>
+        <!-- NOTA: Botón alineado a la derecha en la MISMA FILA -->
+        <button type="submit" class="btn btn-warning float-end">
+            Buscar
+        </button>
+
+        <!-- NOTA: Esto baja la siguiente línea y evita que se encimen -->
+        <div style="clear: both;"></div>
+
+    </form>
+
+</div>
 
 {% endblock %}
