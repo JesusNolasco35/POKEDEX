@@ -7,3 +7,12 @@ Grado y Grupo: 3D
 Especialidad: Pogramacion
 
 Correo: 24308060610037@cetis61.edu.mx
+
+
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install flask
+
+pip install requests
