@@ -18,7 +18,6 @@
 
     <form action="{{ url_for('buscar_pokemon') }}" method="POST">
 
-        <!-- NOTA: Input alineado a la izquierda -->
         <input 
             type="text" 
             name="pokemon_name" 
@@ -26,12 +25,9 @@
             placeholder="Ingresa el nombre de un Pokémon"
         >
 
-        <!-- NOTA: Botón alineado a la derecha en la MISMA FILA -->
         <button type="submit" class="btn btn-warning float-end">
             Buscar
         </button>
-
-        <!-- NOTA: Esto baja la siguiente línea y evita que se encimen -->
         <div style="clear: both;"></div>
 
     </form>
